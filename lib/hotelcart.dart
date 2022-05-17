@@ -1,0 +1,285 @@
+import 'package:flutter/material.dart';
+
+DateTime _now = new DateTime.now();
+DateTime Date = new DateTime(_now.year, _now.month, _now.day);
+String _date1 = Date.toString();
+// ignore: non_constant_identifier_names
+Widget HotelCard(
+    String imgurl, String Hotelname, String location, BuildContext context) {
+  var borderRadius2 = BorderRadius.circular(10);
+  return Container(
+    color: Colors.white,
+    width: MediaQuery.of(context).size.width,
+    padding: const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 15),
+    margin: const EdgeInsets.only(left: 10, right: 10, top: 0, bottom: 10),
+    child: Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: 80,
+              height: 80,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(10),
+                  border: Border.all(width: 0.0, color: Colors.transparent),
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: NetworkImage(imgurl),
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                        offset: const Offset(3, 3),
+                        blurRadius: 3,
+                        color: Colors.black.withOpacity(0.1))
+                  ]),
+            ),
+            const SizedBox(
+              width: 21,
+            ),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    Hotelname,
+                    style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                    const SizedBox(
+                      width: 5,
+                    ),
+                    Expanded(
+                      child: Text(
+                        location,
+                        style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black),
+                      ),
+                    ),
+                  ]),
+                  const SizedBox(
+                    height: 10.5,
+                  ),
+                  const Text.rich(TextSpan(children: [
+                    TextSpan(
+                        text: '\$',
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.black)),
+                    TextSpan(
+                        text: '200',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black)),
+                  ])),
+                ],
+              ),
+            ),
+          ],
+        ),
+        SizedBox(height: 20),
+        Row(
+          children: const [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Loại Phòng",
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: Color.fromARGB(255, 92, 90, 90)),
+              ),
+            ),
+            SizedBox(width: 10),
+            // ignore: prefer_const_constructors
+            Expanded(
+                child: Text(
+              "President Room",
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Color.fromARGB(255, 44, 91, 138)),
+              textAlign: TextAlign.end,
+            )),
+          ],
+        ),
+        Row(
+          children: const [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.only(top: 10, bottom: 10, left: 0),
+                child: Text(
+                  "Số Người",
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 92, 90, 90)),
+                ),
+              ),
+            ),
+            SizedBox(width: 10),
+            // ignore: prefer_const_constructors
+            Expanded(
+                child: Padding(
+              padding: EdgeInsets.only(top: 10, bottom: 10),
+              child: Text(
+                "1 người lớn , 2 trẻ em",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black),
+                textAlign: TextAlign.end,
+              ),
+            )),
+          ],
+        ),
+        Row(
+          children: const [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Ngày nhận Phòng",
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: Color.fromARGB(255, 92, 90, 90)),
+              ),
+            ),
+            SizedBox(width: 10),
+            // ignore: prefer_const_constructors
+            Expanded(
+                child: Text(
+              "T6/12/2019",
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+              textAlign: TextAlign.end,
+            )),
+          ],
+        ),
+        Row(
+          children: const [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                "Ngày Trả Phòng",
+                style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w500,
+                    color: Color.fromARGB(255, 92, 90, 90)),
+              ),
+            ),
+            SizedBox(width: 10),
+            // ignore: prefer_const_constructors
+            Expanded(
+                child: Text(
+              "T6/12/2029",
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+              textAlign: TextAlign.end,
+            )),
+          ],
+        ),
+        Row(
+          children: const [
+            const Text.rich(TextSpan(children: [
+              TextSpan(
+                  text: 'Tổng Thanh Toán',
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black)),
+              TextSpan(
+                  text: '\ !',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black)),
+            ])),
+
+            SizedBox(width: 10),
+            // ignore: prefer_const_constructors
+            Expanded(
+                child: Text(
+              "4.630.000 VND",
+              style: TextStyle(
+                  fontSize: 14,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+              textAlign: TextAlign.end,
+            )),
+          ],
+        ),
+        Row(
+          //Button
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(18.0),
+              child: OutlinedButton(
+                onPressed: () => {},
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  primary: Colors.blueAccent,
+                  side: BorderSide(
+                    color: Colors.blueAccent,
+                    width: 1,
+                  ),
+                ),
+                // ignore: prefer_const_constructors
+                child: Text(
+                  "Xem Chi Tiết",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 100, 179, 239)),
+                ),
+              ),
+            ),
+            SizedBox(width: 5),
+            Expanded(
+              child: OutlinedButton(
+                onPressed: () => {},
+                style: OutlinedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  primary: Colors.redAccent,
+                  side: BorderSide(
+                    color: Colors.redAccent,
+                    width: 1,
+                  ),
+                ),
+
+                // ignore: prefer_const_constructors
+                child: Text(
+                  "Thông Tin Hoàn Tiền",
+                  style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 231, 60, 41)),
+                ),
+              ),
+            )
+          ],
+        )
+      ],
+    ),
+  );
+}
