@@ -42,12 +42,15 @@ Widget HotelCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    Hotelname,
-                    style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 0, bottom: 0),
+                    child: Text(
+                      Hotelname,
+                      style: const TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black),
+                    ),
                   ),
                   const SizedBox(
                     height: 10,
@@ -139,7 +142,7 @@ Widget HotelCard(
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black),
+                    color: Color.fromARGB(255, 19, 9, 9)),
                 textAlign: TextAlign.end,
               ),
             )),
@@ -149,24 +152,30 @@ Widget HotelCard(
           children: const [
             Align(
               alignment: Alignment.topLeft,
-              child: Text(
-                "Ngày nhận Phòng",
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(255, 92, 90, 90)),
+              child: Padding(
+                padding: EdgeInsets.only(top: 0, bottom: 10),
+                child: Text(
+                  "Ngày nhận Phòng",
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 92, 90, 90)),
+                ),
               ),
             ),
             SizedBox(width: 10),
             // ignore: prefer_const_constructors
             Expanded(
-                child: Text(
-              "T6/12/2019",
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black),
-              textAlign: TextAlign.end,
+                child: Padding(
+              padding: EdgeInsets.only(top: 0, bottom: 10),
+              child: Text(
+                "T6/12/2019",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Color.fromARGB(255, 135, 41, 41)),
+                textAlign: TextAlign.end,
+              ),
             )),
           ],
         ),
@@ -174,43 +183,52 @@ Widget HotelCard(
           children: const [
             Align(
               alignment: Alignment.topLeft,
-              child: Text(
-                "Ngày Trả Phòng",
-                style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w500,
-                    color: Color.fromARGB(255, 92, 90, 90)),
+              child: Padding(
+                padding: EdgeInsets.only(top: 0, bottom: 10),
+                child: Text(
+                  "Ngày Trả Phòng",
+                  style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromARGB(255, 92, 90, 90)),
+                ),
               ),
             ),
             SizedBox(width: 10),
             // ignore: prefer_const_constructors
             Expanded(
-                child: Text(
-              "T6/12/2029",
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.black),
-              textAlign: TextAlign.end,
+                child: Padding(
+              padding: EdgeInsets.only(top: 0, bottom: 10),
+              child: Text(
+                "T6/12/2029",
+                style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: Color.fromARGB(255, 135, 41, 41)),
+                textAlign: TextAlign.end,
+              ),
             )),
           ],
         ),
         Row(
           children: const [
-            const Text.rich(TextSpan(children: [
-              TextSpan(
-                  text: 'Tổng Thanh Toán',
-                  style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black)),
-              TextSpan(
-                  text: '\ !',
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black)),
-            ])),
+            Padding(
+              padding: EdgeInsets.only(top: 0, bottom: 10),
+              child: const Text.rich(TextSpan(children: [
+                TextSpan(
+                    text: 'Tổng Thanh Toán',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black)),
+                TextSpan(
+                    text: '\ !',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
+              ])),
+            ),
 
             SizedBox(width: 10),
             // ignore: prefer_const_constructors

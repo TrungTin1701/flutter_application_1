@@ -3,6 +3,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'hotelcart.dart';
+import 'homepage.dart';
+import 'profile.dart';
 
 void main() {
   runApp(DevicePreview(
@@ -33,6 +35,13 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: const Icon(Icons.arrow_back),
+        title: const Text("BOOKING HOTEL ROOM"),
+        centerTitle: true,
+        actions: const [Icon(Icons.more_vert)],
+        backgroundColor: Color.fromARGB(255, 59, 160, 175),
+      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -75,26 +84,11 @@ class Home extends StatelessWidget {
                           child: ListView(
                             scrollDirection: Axis.vertical,
                             children: [
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
+                              HotelCard('/image/hotel2.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
+                              HotelCard('/image/hotel3.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Container(
-                        child: Container(
-                          child: ListView(
-                            scrollDirection: Axis.vertical,
-                            children: [
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
+                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
                             ],
                           ),
@@ -105,12 +99,27 @@ class Home extends StatelessWidget {
                           child: ListView(
                             scrollDirection: Axis.vertical,
                             children: [
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
+                              HotelCard('/image/hotel2.jpg', 'Dat lat pho',
+                                  '400 Ung Van khiem', context),
+                              HotelCard('/image/hotel3.jpg', 'Dat lat pho',
+                                  '400 Ung Van khiem', context),
+                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
+                                  '400 Ung Van khiem', context),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Container(
+                        child: Container(
+                          child: ListView(
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              HotelCard('/image/hotel2.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
                               // ignore: prefer_const_constructors
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
+                              HotelCard('/image/hotel3.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
-                              HotelCard('/image/hotel1.jpg', 'Dat lat pho',
+                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
                             ],
                           ),
@@ -146,26 +155,15 @@ class _MyHomePageState extends State<MyHomePage>
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
+    Home1(),
     Home(),
-    Text(
-      'Index 1: Business',
-    ),
-    Text(
-      'Index 2: profile',
-    ),
+    MainProfile(),
   ];
   @override
   Widget build(BuildContext context) {
     final controller = ScrollController();
 
     var scaffold = Scaffold(
-      appBar: AppBar(
-        leading: const Icon(Icons.arrow_back),
-        title: const Text("BOOKING HOTEL ROOM"),
-        centerTitle: true,
-        actions: const [Icon(Icons.more_vert)],
-        backgroundColor: Color.fromARGB(255, 59, 160, 175),
-      ),
       body: Center(child: _widgetOptions.elementAt(select)),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[

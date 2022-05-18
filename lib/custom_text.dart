@@ -1,152 +1,137 @@
-// Widget _tabContentView(CartUiModel cartUiModel) {
-//   return Column(
-//     mainAxisSize: MainAxisSize.min,
-//     crossAxisAlignment: CrossAxisAlignment.stretch,
-//     children: [
-//       Flexible(
-//         child: Builder(builder: (context) {
-//           return CustomScrollView(
-//               physics: const NeverScrollableScrollPhysics(),
-//               slivers: [
-//                 SliverAppBar(
-//                   toolbarHeight: 0,
-//                   elevation: 3,
-//                   forceElevated: true,
-//                   systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
-//                     statusBarColor: Colors.transparent,
-//                   ),
-//                   backgroundColor: Colors.white,
-//                   centerTitle: true,
-//                   bottom: TabBar(
-//                     overlayColor:
-//                         MaterialStateProperty.all(HaloColors.transparent),
-//                     isScrollable: true,
-//                     indicator: const BoxDecoration(),
-//                     indicatorColor: HaloColors.transparent,
-//                     labelColor: HaloColors.primary,
-//                     labelPadding: EdgeInsets.zero,
-//                     labelStyle:
-//                         context.bodyText2?.primary().mediumSize().bold(),
-//                     unselectedLabelColor: HaloColors.secondary,
-//                     unselectedLabelStyle:
-//                         context.bodyText2?.secondary().mediumSize().bold(),
-//                     tabs: <Widget>[
-//                       Tab(
-//                         child: IntrinsicHeight(
-//                           child: Row(
-//                             mainAxisSize: MainAxisSize.min,
-//                             children: [
-//                               Padding(
-//                                 padding:
-//                                     const EdgeInsets.only(left: 8.0, right: 8),
-//                                 child: Text(
-//                                   cartUiModel.countOrders?.first == false ||
-//                                           cartUiModel.countOrders?.first == null
-//                                       ? context
-//                                               .localizations()
-//                                               ?.cart_screen_main_tour_title ??
-//                                           "Tour"
-//                                       : context
-//                                               .localizations()
-//                                               ?.cart_screen_main_tour_title_1 ??
-//                                           "Tour (1)",
-//                                 ),
-//                               ),
-//                               const VerticalDivider(
-//                                 color: Colors.grey,
-//                                 thickness: 1,
-//                               ),
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                       Tab(
-//                         child: IntrinsicHeight(
-//                           child: Row(
-//                             mainAxisSize: MainAxisSize.min,
-//                             children: [
-//                               Padding(
-//                                 padding:
-//                                     const EdgeInsets.only(left: 8.0, right: 8),
-//                                 child: Text(
-//                                   (cartUiModel.countOrders?[1] == false ||
-//                                           cartUiModel.countOrders?[1] == null)
-//                                       ? context
-//                                               .localizations()
-//                                               ?.cart_screen_main_flight_title ??
-//                                           "Vé máy bay"
-//                                       : context
-//                                               .localizations()
-//                                               ?.cart_screen_main_flight_title_1 ??
-//                                           "Vé máy bay (1)",
-//                                 ),
-//                               ),
-//                               const VerticalDivider(
-//                                 color: Colors.grey,
-//                                 thickness: 1,
-//                               ),
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                       Tab(
-//                         child: IntrinsicHeight(
-//                           child: Row(
-//                             mainAxisSize: MainAxisSize.min,
-//                             children: [
-//                               Padding(
-//                                 padding:
-//                                     const EdgeInsets.only(left: 8.0, right: 8),
-//                                 child: Text(
-//                                   cartUiModel.countOrders?.last == false ||
-//                                           cartUiModel.countOrders?.last == null
-//                                       ? context
-//                                               .localizations()
-//                                               ?.cart_screen_main_car_title ??
-//                                           "Thuê xe"
-//                                       : context
-//                                               .localizations()
-//                                               ?.cart_screen_main_car_title_1 ??
-//                                           "Thuê xe (1)",
-//                                 ),
-//                               ),
+// import 'dart:async';
 
-//                               // const VerticalDivider(
-//                               //   color: Colors.grey,
-//                               //   thickness: 1,
-//                               // ),
-//                             ],
-//                           ),
-//                         ),
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//                 SliverFillRemaining(
-//                   child: TabBarView(
-//                     children: [
-//                       TabCartTourView(
-//                         ordersTour: cartUiModel.ordersTour,
-//                         refreshCallback: () {
-//                           refreshCountItemCart();
-//                         },
-//                       ),
-//                       TabCartFlightView(
-//                         refreshCallback: () {
-//                           refreshCountItemCart();
-//                         },
-//                       ),
-//                       TabCartCarView(
-//                         refreshCallback: () {
-//                           refreshCountItemCart();
-//                         },
-//                       ),
-//                     ],
-//                   ),
-//                 ),
-//               ]);
-//         }),
-//       ),
-//     ],
-//   );
+// import 'package:cached_network_image/cached_network_image.dart';
+// import 'package:data/entities/tour/tour_model.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_blurhash/flutter_blurhash.dart';
+// import 'package:flutter_module/halo/represents/tour/features/detail/model/tour_detail_info_model.dart';
+// import 'package:theme/theme.dart';
+
+// class TourDetailImageSliderView extends StatefulWidget {
+//   const TourDetailImageSliderView(
+//       {Key? key, this.tourDetailMedia, this.tourDetail})
+//       : super(key: key);
+
+//   final List<TourDetailMedia>? tourDetailMedia;
+//   final TourDetail? tourDetail;
+
+//   @override
+//   _TourDetailImageSliderViewState createState() =>
+//       _TourDetailImageSliderViewState();
 // }
+
+// class _TourDetailImageSliderViewState extends State<TourDetailImageSliderView> {
+//   late PageController _pageController;
+//   int activePage = 0;
+
+//   late Timer timer;
+//   late Duration autoplayDuration = const Duration(seconds: 4);
+//   late Duration animationDuration = const Duration(seconds: 3);
+//   late Duration backDuration = const Duration(seconds: 3);
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _pageController = PageController(viewportFraction: 0.99, initialPage: 0);
+
+//     WidgetsBinding.instance?.addPostFrameCallback(
+//         (_) => timer = Timer.periodic(autoplayDuration, (timer) {
+//               var length = (widget.tourDetailMedia?.length ?? 0) - 1;
+//               if (_pageController.hasClients) {
+//                 if ((_pageController.page?.round()) == length) {
+//                   _pageController.animateToPage(0,
+//                       duration: backDuration, curve: Curves.easeInOut);
+//                 } else {
+//                   _pageController.nextPage(
+//                       duration: animationDuration, curve: Curves.easeInOut);
+//                 }
+//               }
+//             }));
+//   }
+
+//   @override
+//   void dispose() {
+//     _pageController.dispose();
+//     timer.cancel();
+//     super.dispose();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Stack(
+//       alignment: Alignment.bottomLeft,
+//       children: [
+//         ClipRRect(
+//           borderRadius: const BorderRadius.only(
+//               topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+//           child: PageView.builder(
+//               physics: const NeverScrollableScrollPhysics(),
+//               itemCount: widget.tourDetailMedia?.length,
+//               controller: _pageController,
+//               allowImplicitScrolling: true,
+//               onPageChanged: (page)
+//  {
+//                 setState(() {
+//                   activePage = page;
+//                 });
+//               },
+//               itemBuilder: (context, index) {
+//                 return CachedNetworkImage(
+//                   imageUrl: widget.tourDetailMedia?[index].path ?? "",
+//                   fit: BoxFit.cover,
+//                   placeholder: (context, url) => const AspectRatio(
+//                     aspectRatio: 1.6,
+//                     child: BlurHash(
+//                       hash: 'LKGSo.t:ERRO1mo#NMRi?HRNkEjE',
+//                       color: Colors.transparent,
+//                     ),
+//                   ),
+//                   errorWidget: (context, url, error) => Image.asset(
+//                     "packages/theme/assets/images/img_holder.png",
+//                     fit: BoxFit.cover,
+//                   ),
+//                 );
+//               }),
+//         ),
+//         Container(
+//           margin: const EdgeInsets.only(left: 16, bottom: 8, right: 16),
+//           child: Row(
+//             children: indicators(widget.tourDetailMedia?.length, activePage),
+//           ),
+//         ),
+//         widget.tourDetailMedia?.isEmpty == true ||
+//                 widget.tourDetailMedia == null
+//             ? const SizedBox.shrink()
+//             : Positioned(
+//                 bottom: 16,
+//                 right: 16,
+//                 child: InkWell(
+//                   onTap: () => {
+//                     Navigator.of(context).pushNamed("/galleryImage",
+//                         arguments: TourDetailListMediaModel(
+//                             tourDetailMedia: widget.tourDetailMedia,
+//                             tourDetail: widget.tourDetail))
+//                   },
+//                   child: Image.asset(
+//                     "packages/theme/assets/images/tour/ic_get_galery.png",
+//                   ),
+//                 ))
+//       ],
+//     );
+//   }
+
+//   List<Widget> indicators(imagesLength, currentIndex) {
+//     var maxIndicators = imagesLength > 20 ? 20 : imagesLength;
+//     return List<Widget>.generate(maxIndicators, (index) {
+//       return Container(
+//         margin: const EdgeInsets.all(3),
+//         width: 6,
+//         height: 6,
+//         decoration: BoxDecoration(
+//             color: currentIndex == index
+//                 ? HaloColors.backgroundColor
+//                 : HaloColors.textDarkGray,
+//             shape: BoxShape.circle),
+//       );
+//     });
+//   }
