@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Profile/profile.dart';
+import 'ChiTiet/chitiet.dart';
 
 DateTime _now = new DateTime.now();
 DateTime Date = new DateTime(_now.year, _now.month, _now.day);
 String _date1 = Date.toString();
 // ignore: non_constant_identifier_names
+void runapp() {
+  runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
+    home: ProfileApp(),
+  ));
+}
+
 Widget HotelCard(
-    String imgurl, String Hotelname, String location, BuildContext context) {
+  String imgurl,
+  String Hotelname,
+  String location,
+  BuildContext context,
+) {
   var borderRadius2 = BorderRadius.circular(10);
   return Container(
     color: Colors.white,
@@ -249,7 +262,10 @@ Widget HotelCard(
             Padding(
               padding: const EdgeInsets.all(18.0),
               child: OutlinedButton(
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => (chitiet())))
+                },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -262,7 +278,7 @@ Widget HotelCard(
                 ),
                 // ignore: prefer_const_constructors
                 child: Text(
-                  "Xem Chi Tiết",
+                  (isReadmore() ? "Xem Chi Tiết" : "Xem Chi Tiết"),
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
@@ -300,4 +316,8 @@ Widget HotelCard(
       ],
     ),
   );
+}
+
+bool isReadmore() {
+  return false;
 }

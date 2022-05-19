@@ -2,9 +2,10 @@ import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'hotelcart.dart';
-import 'homepage.dart';
-import 'profile.dart';
+import 'HotelPage/hotelcart.dart';
+import 'HomePage/homepage.dart';
+import 'Profile/profile.dart';
+import 'HotelPage/hotelcart.dart';
 
 void main() {
   runApp(DevicePreview(
@@ -36,7 +37,16 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(Icons.arrow_back),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return MyApp();
+            }));
+          },
+          child: const Icon(
+            Icons.arrow_back,
+          ),
+        ),
         title: const Text("BOOKING HOTEL ROOM"),
         centerTitle: true,
         actions: const [Icon(Icons.more_vert)],
@@ -157,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage>
   static const List<Widget> _widgetOptions = <Widget>[
     Home1(),
     Home(),
-    MainProfile(),
+    ProfileApp(),
   ];
   @override
   Widget build(BuildContext context) {
