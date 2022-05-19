@@ -13,6 +13,12 @@ class Home1 extends StatefulWidget {
 }
 
 class _Home1State extends State<Home1> {
+  final mycontroller = TextEditingController();
+  void dispose() {
+    mycontroller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,21 +42,38 @@ class _Home1State extends State<Home1> {
                   borderRadius: BorderRadius.circular(40.0),
                   shadowColor: Color.fromARGB(84, 44, 41, 41),
                   child: TextField(
+                    controller: mycontroller,
                     textAlign: TextAlign.start,
                     textAlignVertical: TextAlignVertical.center,
                     decoration: InputDecoration(
                       hintText: "Search for Hotel, Flight...",
                       prefixIcon: Icon(
                         Icons.search,
-                        color: Colors.black54,
+                        color: Color.fromARGB(137, 121, 67, 67),
                       ),
                       border: InputBorder.none,
                     ),
                   ),
                 ),
+              ),
+              Center(
+                child: FloatingActionButton(
+                    onPressed: () => {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return AlertDialog(
+                                  content: Text(mycontroller.text),
+                                  contentPadding: EdgeInsets.only(
+                                      left: 5, right: 5, top: 10, bottom: 10),
+                                );
+                                Tooltip(
+                                  message: "Find",
+                                );
+                              }),
+                        },
+                    child: Icon(Icons.search)),
               ), //Search
-
-              image_1(),
             ],
           ),
         ));
