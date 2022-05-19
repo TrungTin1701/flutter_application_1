@@ -178,7 +178,7 @@ class _InfoState extends State<Info> {
       children: [
         CircleAvatar(
           backgroundImage: NetworkImage(
-            "/image/hotel1.jpg",
+            "/image/Avar/marc.jpg",
           ),
           radius: 50.0,
         ),
@@ -307,38 +307,36 @@ class UI extends StatefulWidget {
 class _UIState extends State<UI> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: Text(
-                "Introduce Myself",
-                style: TextStyle(
-                    color: Colors.redAccent,
-                    fontStyle: FontStyle.normal,
-                    fontSize: 28.0),
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
-            Text(
-              'My name is Macr Spector and I am  a freelance mobile app developper.\n'
-              'if you need any mobile app for your company then contact me for more informations',
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 30.0, horizontal: 16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const <Widget>[
+          Center(
+            child: Text(
+              "Introduce Myself",
               style: TextStyle(
-                fontSize: 22.0,
-                fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w300,
-                color: Colors.black,
-                letterSpacing: 2.0,
-              ),
+                  color: Colors.redAccent,
+                  fontStyle: FontStyle.normal,
+                  fontSize: 28.0),
             ),
-          ],
-        ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Text(
+            'My name is Macr Spector and I am  a freelance mobile app developper.\n'
+            'if you need any mobile app for your company then contact me for more informations',
+            style: TextStyle(
+              fontSize: 22.0,
+              fontStyle: FontStyle.italic,
+              fontWeight: FontWeight.w300,
+              color: Colors.black,
+              letterSpacing: 2.0,
+            ),
+          ),
+        ],
       ),
     );
   }

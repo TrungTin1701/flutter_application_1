@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/HotelPage/ChiTiet/HotelCartExtended.dart';
-import 'package:flutter_application_1/Profile/profile.dart';
 import 'package:flutter_application_1/main.dart';
-import 'package:flutter_application_1/HotelPage/hotelcart.dart';
 
+// ignore: camel_case_types
 class chitiet extends StatefulWidget {
   const chitiet({Key? key}) : super(key: key);
 
@@ -11,6 +10,7 @@ class chitiet extends StatefulWidget {
   State<chitiet> createState() => _chitietState();
 }
 
+// ignore: camel_case_types
 class _chitietState extends State<chitiet> {
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _chitietState extends State<chitiet> {
         leading: GestureDetector(
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MyApp();
+              return const MyApp();
             }));
           },
           child: const Icon(
@@ -29,7 +29,7 @@ class _chitietState extends State<chitiet> {
         title: const Text("BOOKING HOTEL ROOM"),
         centerTitle: true,
         actions: const [Icon(Icons.more_vert)],
-        backgroundColor: Color.fromARGB(255, 59, 160, 175),
+        backgroundColor: const Color.fromARGB(255, 59, 160, 175),
       ),
       body: Column(
         children: [

@@ -1,14 +1,15 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Profile/profile.dart';
 
-DateTime _now = new DateTime.now();
+DateTime _now = DateTime.now();
+// ignore: non_constant_identifier_names
 DateTime Date = new DateTime(_now.year, _now.month, _now.day);
-String _date1 = Date.toString();
 // ignore: non_constant_identifier_names
 void runapp() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: ProfileApp(),
+    home: const ProfileApp(),
   ));
 }
 
@@ -103,7 +104,7 @@ Widget HotelCard1(
             ),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: const [
             Align(
@@ -234,7 +235,7 @@ Widget HotelCard1(
                         fontWeight: FontWeight.w500,
                         color: Colors.black)),
                 TextSpan(
-                    text: '\ !',
+                    text: ' !',
                     style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.bold,

@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+// ignore: implementation_imports
 
 class Home1 extends StatefulWidget {
   const Home1({Key? key}) : super(key: key);
@@ -14,6 +14,7 @@ class Home1 extends StatefulWidget {
 
 class _Home1State extends State<Home1> {
   final mycontroller = TextEditingController();
+  @override
   void dispose() {
     mycontroller.dispose();
     super.dispose();
@@ -27,25 +28,25 @@ class _Home1State extends State<Home1> {
           title: const Text("HOME PAGE"),
           centerTitle: true,
           actions: const [Icon(Icons.more_vert)],
-          backgroundColor: Color.fromARGB(255, 59, 160, 175),
+          backgroundColor: const Color.fromARGB(255, 59, 160, 175),
         ),
         body: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              image_1(), //Picture roll
+              const image_1(), //Picture roll
               Container(
                 color: Colors.white,
                 height: 50,
                 child: Material(
                   elevation: 10.0,
                   borderRadius: BorderRadius.circular(40.0),
-                  shadowColor: Color.fromARGB(84, 44, 41, 41),
+                  shadowColor: const Color.fromARGB(84, 44, 41, 41),
                   child: TextField(
                     controller: mycontroller,
                     textAlign: TextAlign.start,
                     textAlignVertical: TextAlignVertical.center,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: "Search for Hotel, Flight...",
                       prefixIcon: Icon(
                         Icons.search,
@@ -64,17 +65,14 @@ class _Home1State extends State<Home1> {
                               builder: (context) {
                                 return AlertDialog(
                                   content: Text(mycontroller.text),
-                                  contentPadding: EdgeInsets.only(
+                                  contentPadding: const EdgeInsets.only(
                                       left: 5, right: 5, top: 10, bottom: 10),
-                                );
-                                Tooltip(
-                                  message: "Find",
                                 );
                               }),
                         },
-                    child: Icon(Icons.search)),
+                    child: const Icon(Icons.search)),
               ),
-              image_1(), //Search
+              const image_1(), //Search
             ],
           ),
         ));
@@ -82,7 +80,7 @@ class _Home1State extends State<Home1> {
 }
 
 class image_1 extends StatefulWidget {
-  image_1({Key? key}) : super(key: key);
+  const image_1({Key? key}) : super(key: key);
 
   @override
   State<image_1> createState() => _image_1State();
