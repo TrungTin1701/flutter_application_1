@@ -100,6 +100,8 @@ class Home extends StatelessWidget {
                                   '400 Ung Van khiem', context),
                               HotelCard('/image/hotel4.jpg', 'Dat lat pho',
                                   '400 Ung Van khiem', context),
+                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
+                                  '400 Ung Van khiem', context),
                             ],
                           ),
                         ),

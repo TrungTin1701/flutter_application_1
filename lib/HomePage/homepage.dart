@@ -73,7 +73,8 @@ class _Home1State extends State<Home1> {
                               }),
                         },
                     child: Icon(Icons.search)),
-              ), //Search
+              ),
+              image_1(), //Search
             ],
           ),
         ));
@@ -124,7 +125,7 @@ class _image_1State extends State<image_1> {
   int activePage = 0;
 
   late Timer timer;
-  late Duration autoplayDuration = const Duration(seconds: 4);
+  late Duration autoplayDuration = const Duration(seconds: 3);
   late Duration animationDuration = const Duration(seconds: 2);
   late Duration backDuration = const Duration(seconds: 2);
 
@@ -133,7 +134,7 @@ class _image_1State extends State<image_1> {
     super.initState();
     _pageController = PageController(viewportFraction: 0.99, initialPage: 0);
 
-    WidgetsBinding.instance?.addPostFrameCallback(
+    WidgetsBinding.instance.addPostFrameCallback(
         (_) => timer = Timer.periodic(autoplayDuration, (timer) {
               var length = (imageroll.length) - 1;
               if (_pageController.hasClients) {
@@ -151,7 +152,7 @@ class _image_1State extends State<image_1> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 200,
       child: PageView.builder(
         itemCount: imageroll.length,
         itemBuilder: (BuildContext context, int index) {

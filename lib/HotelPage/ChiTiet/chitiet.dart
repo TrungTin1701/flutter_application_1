@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/HotelPage/ChiTiet/HotelCartExtended.dart';
 import 'package:flutter_application_1/Profile/profile.dart';
 import 'package:flutter_application_1/main.dart';
 import 'package:flutter_application_1/HotelPage/hotelcart.dart';
@@ -32,7 +33,7 @@ class _chitietState extends State<chitiet> {
       ),
       body: Column(
         children: [
-          HotelCard(
+          HotelCard1(
               '/image/hotel2.jpg', 'Dat lat pho', '400 Ung Van khiem', context)
         ],
       ),

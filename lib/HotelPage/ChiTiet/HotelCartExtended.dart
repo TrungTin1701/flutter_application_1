@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Profile/profile.dart';
-import 'ChiTiet/chitiet.dart';
-import 'ChiTiet/HotelCartExtended.dart';
 
 DateTime _now = new DateTime.now();
 DateTime Date = new DateTime(_now.year, _now.month, _now.day);
@@ -14,7 +12,7 @@ void runapp() {
   ));
 }
 
-Widget HotelCard(
+Widget HotelCard1(
   String imgurl,
   String Hotelname,
   String location,
@@ -230,6 +228,39 @@ Widget HotelCard(
               padding: EdgeInsets.only(top: 0, bottom: 10),
               child: const Text.rich(TextSpan(children: [
                 TextSpan(
+                    text: 'Mã Phòng',
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                        color: Colors.black)),
+                TextSpan(
+                    text: '\ !',
+                    style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black)),
+              ])),
+            ),
+
+            SizedBox(width: 10),
+            // ignore: prefer_const_constructors
+            Expanded(
+                child: Text(
+              "VIP 001",
+              style: TextStyle(
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black),
+              textAlign: TextAlign.end,
+            )),
+          ],
+        ),
+        Row(
+          children: const [
+            Padding(
+              padding: EdgeInsets.only(top: 0, bottom: 10),
+              child: const Text.rich(TextSpan(children: [
+                TextSpan(
                     text: 'Tổng Thanh Toán',
                     style: TextStyle(
                         fontSize: 14,
@@ -257,63 +288,6 @@ Widget HotelCard(
             )),
           ],
         ),
-        Row(
-          //Button
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(18.0),
-              child: OutlinedButton(
-                onPressed: () => {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => (chitiet())))
-                },
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  primary: Colors.blueAccent,
-                  side: BorderSide(
-                    color: Colors.blueAccent,
-                    width: 1,
-                  ),
-                ),
-                // ignore: prefer_const_constructors
-                child: Text(
-                  (isReadmore() ? "Xem Chi Tiết" : "Xem Chi Tiết"),
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 100, 179, 239)),
-                ),
-              ),
-            ),
-            SizedBox(width: 5),
-            Expanded(
-              child: OutlinedButton(
-                onPressed: () => {},
-                style: OutlinedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  primary: Colors.redAccent,
-                  side: BorderSide(
-                    color: Colors.redAccent,
-                    width: 1,
-                  ),
-                ),
-
-                // ignore: prefer_const_constructors
-                child: Text(
-                  "Thông Tin Hoàn Tiền",
-                  style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(255, 231, 60, 41)),
-                ),
-              ),
-            )
-          ],
-        )
       ],
     ),
   );
