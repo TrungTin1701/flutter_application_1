@@ -8,9 +8,11 @@ import 'HotelPage/hotelcart.dart';
 
 DateTime today = new DateTime.now();
 String weekday =
-    today.weekday < 7 ? 'T' + (today.weekday + 1).toString() : 'CN';
-String dateSlug =
-    "${weekday}/${today.year.toString()}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}";
+    today.weekday < 7 ? 'Thứ ' + (today.weekday + 1).toString() : 'CN';
+String min =
+    today.minute < 10 ? '0' + today.minute.toString() : today.minute.toString();
+late String dateSlug =
+    "${weekday} /${today.year.toString()}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')},  ${today.hour}:${min}";
 String _date1 = dateSlug.toString();
 
 void main() {

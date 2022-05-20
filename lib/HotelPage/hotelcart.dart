@@ -72,12 +72,28 @@ Widget HotelCard(
                       width: 5,
                     ),
                     Expanded(
-                      child: Text(
-                        Date1,
-                        style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black),
+                      child: Text.rich(
+                        TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: Icon(
+                                  Icons.location_on,
+                                  color: Colors.black,
+                                  size: 15,
+                                ),
+                              ),
+                            ),
+                            TextSpan(
+                              text: '$location',
+                              style: const TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ]),
@@ -229,16 +245,16 @@ Widget HotelCard(
               child: const Text.rich(TextSpan(children: [
                 TextSpan(
                     text: 'Tổng Thanh Toán',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.black)),
-                TextSpan(
-                    text: '\ !',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black)),
+                    style: TextStyle(fontSize: 14, color: Colors.black)),
+                WidgetSpan(
+                    child: Padding(
+                  padding: EdgeInsets.all(2),
+                  child: Icon(
+                    Icons.info_outline,
+                    color: Colors.black,
+                    size: 15,
+                  ),
+                )),
               ])),
             ),
 
@@ -249,7 +265,7 @@ Widget HotelCard(
               "4.630.000 VND",
               style: TextStyle(
                   fontSize: 14,
-                  fontWeight: FontWeight.w500,
+                  fontWeight: FontWeight.w700,
                   color: Colors.black),
               textAlign: TextAlign.end,
             )),
