@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'HotelPage/hotelcart.dart' show HotelCard;
 import 'HomePage/homepage.dart';
 import 'Profile/profile.dart';
@@ -14,6 +15,8 @@ String min =
 late String dateSlug =
     "${weekday} /${today.year.toString()}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')},  ${today.hour}:${min}";
 String _date1 = dateSlug.toString();
+late String dateSlug2 =
+    "${weekday} /${(today.year).toString()}-${today.month.toString().padLeft(2, '0')}-${(today.day + 3).toString().padLeft(2, '0')},  ${today.hour}:${min}";
 
 void main() {
   runApp(DevicePreview(
@@ -30,9 +33,9 @@ class MyApp extends StatelessWidget {
       useInheritedMediaQuery: true,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      title: 'Flutter Demo',
+      title: 'TRAVEL HOLA',
       theme: themeData,
-      home: const MyHomePage(title: 'Booking Hotel Room'),
+      home: const MyHomePage(title: 'TRAVEL HOLA'),
     );
     return materialApp;
   }
@@ -47,9 +50,10 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return MyApp();
-            }));
+            //Navigator.pop(context);
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const MyApp()));
+            print(context);
           },
           child: const Icon(
             Icons.arrow_back,
@@ -74,7 +78,7 @@ class Home extends StatelessWidget {
                       return TabBar(
                           indicatorColor: Colors.blue,
                           indicatorSize: TabBarIndicatorSize.label,
-                          indicatorWeight: 3,
+                          indicatorWeight: 2,
                           unselectedLabelColor: Color.fromARGB(255, 13, 10, 10),
                           labelColor: Colors.blue,
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -99,22 +103,42 @@ class Home extends StatelessWidget {
                     height: 20.0,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.65,
+                    height: MediaQuery.of(context).size.height * 0.73,
                     child: TabBarView(children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.65,
+                        height: MediaQuery.of(context).size.height * 0.74,
                         child: Container(
                           child: ListView(
                             scrollDirection: Axis.vertical,
                             children: [
-                              HotelCard('/image/hotel2.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
-                              HotelCard('/image/hotel3.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
-                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
-                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
+                              HotelCard(
+                                  '/image/hotel2.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
+                              HotelCard(
+                                  '/image/hotel3.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
+                              HotelCard(
+                                  '/image/hotel4.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
+                              HotelCard(
+                                  '/image/hotel4.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
                             ],
                           ),
                         ),
@@ -124,12 +148,27 @@ class Home extends StatelessWidget {
                           child: ListView(
                             scrollDirection: Axis.vertical,
                             children: [
-                              HotelCard('/image/hotel2.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
-                              HotelCard('/image/hotel3.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
-                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
+                              HotelCard(
+                                  '/image/hotel2.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
+                              HotelCard(
+                                  '/image/hotel3.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
+                              HotelCard(
+                                  '/image/hotel4.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
                             ],
                           ),
                         ),
@@ -139,13 +178,28 @@ class Home extends StatelessWidget {
                           child: ListView(
                             scrollDirection: Axis.vertical,
                             children: [
-                              HotelCard('/image/hotel2.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
+                              HotelCard(
+                                  '/image/hotel2.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
                               // ignore: prefer_const_constructors
-                              HotelCard('/image/hotel3.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
-                              HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context, _date1),
+                              HotelCard(
+                                  '/image/hotel3.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
+                              HotelCard(
+                                  '/image/hotel4.jpg',
+                                  'Tôi và em',
+                                  '400 Ung Van khiem',
+                                  context,
+                                  _date1,
+                                  dateSlug2),
                             ],
                           ),
                         ),

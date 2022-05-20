@@ -18,9 +18,7 @@ class _chitietState extends State<chitiet> {
       appBar: AppBar(
         leading: GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const MyApp();
-            }));
+            Navigator.pop(context);
           },
           child: const Icon(
             Icons.arrow_back,
