@@ -3,9 +3,6 @@ import 'package:flutter_application_1/Profile/profile.dart';
 import 'ChiTiet/chitiet.dart';
 import 'ChiTiet/HotelCartExtended.dart';
 
-DateTime _now = new DateTime.now();
-DateTime Date = new DateTime(_now.year, _now.month, _now.day);
-String _date1 = Date.toString();
 // ignore: non_constant_identifier_names
 void runapp() {
   runApp(MaterialApp(
@@ -19,6 +16,7 @@ Widget HotelCard(
   String Hotelname,
   String location,
   BuildContext context,
+  String Date1,
 ) {
   var borderRadius2 = BorderRadius.circular(10);
   return Container(
@@ -75,7 +73,7 @@ Widget HotelCard(
                     ),
                     Expanded(
                       child: Text(
-                        location,
+                        Date1,
                         style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
@@ -105,7 +103,7 @@ Widget HotelCard(
             ),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
         Row(
           children: const [
             Align(
@@ -163,7 +161,7 @@ Widget HotelCard(
           ],
         ),
         Row(
-          children: const [
+          children: [
             Align(
               alignment: Alignment.topLeft,
               child: Padding(
@@ -183,7 +181,7 @@ Widget HotelCard(
                 child: Padding(
               padding: EdgeInsets.only(top: 0, bottom: 10),
               child: Text(
-                "T6/12/2019",
+                Date1,
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
@@ -260,8 +258,7 @@ Widget HotelCard(
         Row(
           //Button
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(18.0),
+            Expanded(
               child: OutlinedButton(
                 onPressed: () => {
                   Navigator.push(context,
@@ -269,7 +266,7 @@ Widget HotelCard(
                 },
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   primary: Colors.blueAccent,
                   side: BorderSide(
@@ -279,7 +276,7 @@ Widget HotelCard(
                 ),
                 // ignore: prefer_const_constructors
                 child: Text(
-                  (isReadmore() ? "Xem Chi Tiết" : "Xem Chi Tiết"),
+                  (isReadmore() ? "Xem Chi iết" : "Xem Chi iết"),
                   style: TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
@@ -287,13 +284,13 @@ Widget HotelCard(
                 ),
               ),
             ),
-            SizedBox(width: 5),
+            SizedBox(width: 10),
             Expanded(
               child: OutlinedButton(
                 onPressed: () => {},
                 style: OutlinedButton.styleFrom(
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(30),
                   ),
                   primary: Colors.redAccent,
                   side: BorderSide(

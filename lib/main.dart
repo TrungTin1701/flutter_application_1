@@ -6,6 +6,13 @@ import 'HomePage/homepage.dart';
 import 'Profile/profile.dart';
 import 'HotelPage/hotelcart.dart';
 
+DateTime today = new DateTime.now();
+String weekday =
+    today.weekday < 7 ? 'T' + (today.weekday + 1).toString() : 'CN';
+String dateSlug =
+    "${weekday}/${today.year.toString()}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}";
+String _date1 = dateSlug.toString();
+
 void main() {
   runApp(DevicePreview(
       enabled: !kReleaseMode, builder: (context) => const MyApp()));
@@ -63,11 +70,16 @@ class Home extends StatelessWidget {
                   Flexible(
                     child: Builder(builder: (context) {
                       return TabBar(
-                          indicatorColor: Color.fromARGB(255, 184, 70, 36),
-                          unselectedLabelColor:
-                              Color.fromARGB(255, 137, 122, 122),
-                          labelColor: Color(0xFFFE8C68),
+                          indicatorColor: Colors.blue,
+                          indicatorSize: TabBarIndicatorSize.label,
+                          indicatorWeight: 3,
+                          unselectedLabelColor: Color.fromARGB(255, 13, 10, 10),
+                          labelColor: Colors.blue,
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
+                          labelStyle: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.black),
                           tabs: [
                             Tab(
                               text: "Tất cả",
@@ -94,13 +106,13 @@ class Home extends StatelessWidget {
                             scrollDirection: Axis.vertical,
                             children: [
                               HotelCard('/image/hotel2.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               HotelCard('/image/hotel3.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                             ],
                           ),
                         ),
@@ -111,11 +123,11 @@ class Home extends StatelessWidget {
                             scrollDirection: Axis.vertical,
                             children: [
                               HotelCard('/image/hotel2.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               HotelCard('/image/hotel3.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                             ],
                           ),
                         ),
@@ -126,12 +138,12 @@ class Home extends StatelessWidget {
                             scrollDirection: Axis.vertical,
                             children: [
                               HotelCard('/image/hotel2.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               // ignore: prefer_const_constructors
                               HotelCard('/image/hotel3.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                               HotelCard('/image/hotel4.jpg', 'Dat lat pho',
-                                  '400 Ung Van khiem', context),
+                                  '400 Ung Van khiem', context, _date1),
                             ],
                           ),
                         ),
@@ -174,6 +186,35 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context) {
     final controller = ScrollController();
 
+    // var scaffold = MaterialApp(
+    //     home: Scaffold(
+    //   body: Center(child: _widgetOptions.elementAt(select)),
+    //   bottomNavigationBar: BottomNavigationBar(
+    //     items: const <BottomNavigationBarItem>[
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.home),
+    //         label: 'Home',
+    //       ),
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.hotel),
+    //         label: 'Hotel',
+    //       ),
+    //       BottomNavigationBarItem(
+    //         icon: Icon(
+    //           Icons.person,
+    //         ),
+    //         label: 'Profile',
+    //       ),
+    //     ],
+    //     currentIndex: select,
+    //     selectedItemColor: Colors.amber[800],
+    //     onTap: (int index) {
+    //       setState(() {
+    //         select = index;
+    //       });
+    //     },
+    //   ),
+    // ));
     var scaffold = Scaffold(
       body: Center(child: _widgetOptions.elementAt(select)),
       bottomNavigationBar: BottomNavigationBar(
