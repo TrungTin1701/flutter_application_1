@@ -67,7 +67,7 @@ class Home extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
+        children: <Widget>[
           DefaultTabController(
               length: 3,
               child: Expanded(
@@ -78,12 +78,12 @@ class Home extends StatelessWidget {
                       return TabBar(
                           indicatorColor: Colors.blue,
                           indicatorSize: TabBarIndicatorSize.label,
-                          indicatorWeight: 2,
+                          indicatorWeight: 4,
                           unselectedLabelColor: Color.fromARGB(255, 13, 10, 10),
                           labelColor: Colors.blue,
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
                           labelStyle: TextStyle(
-                              fontSize: 12,
+                              fontSize: 14,
                               fontWeight: FontWeight.w700,
                               color: Colors.black),
                           tabs: [
@@ -103,10 +103,10 @@ class Home extends StatelessWidget {
                     height: 20.0,
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height * 0.73,
+                    height: MediaQuery.of(context).size.height * 0.70,
                     child: TabBarView(children: [
                       Container(
-                        height: MediaQuery.of(context).size.height * 0.74,
+                        height: MediaQuery.of(context).size.height * 0.60,
                         child: Container(
                           child: ListView(
                             scrollDirection: Axis.vertical,
